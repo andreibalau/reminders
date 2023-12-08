@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -23,5 +24,10 @@ public class ReminderServiceImpl implements ReminderService {
     public ReminderDto save(ReminderDto reminder) {
         var reminderPayload = mapper.map(reminder);
         return mapper.map(reminderRepository.save(reminderPayload));
+    }
+
+    @Override
+    public void delete(String id) {
+        reminderRepository.deleteById(UUID.fromString(id));
     }
 }

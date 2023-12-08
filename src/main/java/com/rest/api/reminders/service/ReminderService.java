@@ -7,4 +7,5 @@ import java.util.List;
 public interface ReminderService {
     List<ReminderDto> getAll();
     ReminderDto save(ReminderDto reminder);
+    void delete(String id);
 }
